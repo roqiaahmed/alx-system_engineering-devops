@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chown betty current user
+su betty
