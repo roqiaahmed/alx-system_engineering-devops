@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+if [ $# -eq 0 ];
