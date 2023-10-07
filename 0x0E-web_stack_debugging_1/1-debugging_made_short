@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# Fix nginx not listening on port 80
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-service nginx restart
-kill "$(pgrep 'nginx' | head -1)"
+
+sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
+service nginx restart 2>&1 | grep -q "nginx is not running"
+
+# #!/usr/bin/env bash
+# # Fix nginx not listening on port 80
+# ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# service nginx restart
+# kill "$(pgrep 'nginx' | head -1)"
