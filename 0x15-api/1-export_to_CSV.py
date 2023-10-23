@@ -15,7 +15,7 @@ if __name__ == "__main__":
         if n.get("id") == int(argv[1]):
             employee = n.get("name")
 
-        res = get("https://jsonplaceholder.typicode.com/todos")
+    res = get("https://jsonplaceholder.typicode.com/todos")
     data1 = res.json()
 
     file = "{}.csv".format(argv[1])
