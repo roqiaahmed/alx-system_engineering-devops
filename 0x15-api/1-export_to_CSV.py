@@ -19,8 +19,7 @@ if __name__ == "__main__":
     data2 = res2.json()
     row = []
 
-    file = "{}.csv".format(argv[1])
-    with open(file, 'w', newline='') as file:
+    with open(argv[1] + '.csv', 'w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for i in data2:
             row = []
