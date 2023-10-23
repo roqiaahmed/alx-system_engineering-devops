@@ -2,10 +2,11 @@
 """returns information about his/her TODO list progress.
 """
 
+from requests import get
+from sys import argv
+
 
 if __name__ == "__main__":
-    from requests import get
-    from sys import argv
     res = get("https://jsonplaceholder.typicode.com/users")
     data = res.json()
     all_tasks = 0
