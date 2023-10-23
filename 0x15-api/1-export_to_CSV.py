@@ -8,23 +8,23 @@ import csv
 
 
 if __name__ == "__main__":
-    res = get("https://jsonplaceholder.typicode.com/users")
-    data = res.json()
+    res1 = get("https://jsonplaceholder.typicode.com/users")
+    data1 = res1.json()
 
-    for n in data:
-        if n.get("id") == int(argv[1]):
-            employee = n.get("name")
+    for n in data1:
+        if n['id'] == int(argv[1]):
+            employee = n['username']
 
-    res = get("https://jsonplaceholder.typicode.com/todos")
-    data1 = res.json()
+    res2 = get("https://jsonplaceholder.typicode.com/todos")
+    data2 = res2.json()
+    row = []
 
     file = "{}.csv".format(argv[1])
-    row = []
     with open(file, 'w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-        for i in data1:
+        for i in data2:
             row = []
-            if i.get("userId") == int(argv[1]):
+            if i['userId'] == int(argv[1]):
                 row.append(i['userId'])
                 row.append(employee)
                 row.append(i["completed"])
