@@ -15,12 +15,12 @@ def top_ten(subreddit):
         headers = {"User-Agent": "My-User-Agent"}
         res = requests.get(url, headers=headers, params={"limit": 10})
         data = res.json()
-        if data["error"] == 404:
-            print(None)
-            return None
         titles = data["data"]["children"]
         for title in titles:
             print(title["data"]["title"])
+        if data["error"] == 404:
+            print(None)
+            return None
         return titles
     except Exception as e:
         return None
