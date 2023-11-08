@@ -1,0 +1,47 @@
+Postmortem: Server Error 500 - November 6, 5:00 PM
+
+Date and Time: November 6, 5:00 PM - November 6, 8:00 PM
+
+Summary:
+On November 6, at 5:00 PM, we experienced a server error 500 on our website. The issue was traced back to a problem with the 'wp-settings.php' file, specifically related to incorrect PHP extensions. The problem was resolved within three hours by updating the extensions to the correct 'php' format. This postmortem aims to provide a detailed account of the incident and the steps taken to resolve it.
+
+Timeline:
+
+- 5:00 PM: Server error 500 was detected on our website.
+- 5:10 PM: Initial investigation began to identify the source of the error.
+- 5:20 PM: The server logs were checked for any relevant error messages.
+- 5:30 PM: The Apache server was isolated and a separate terminal was used to run a 'curl' command to access the website.
+- 5:40 PM: The response from the 'curl' command was examined, and the problematic file was identified as 'wp-settings.php'.
+- 5:50 PM: The 'wp-settings.php' file was opened for inspection.
+- 6:00 PM: It was determined that the issue stemmed from incorrect PHP extensions within the file.
+- 6:10 PM: Steps were taken to update the extensions to the correct 'php' format.
+- 8:00 PM: The problem was successfully resolved, and the website returned to normal operation.
+
+Root Cause:
+The root cause of the server error 500 was identified as a misconfiguration in the 'wp-settings.php' file, specifically related to incorrect PHP extensions.
+
+Resolution and Mitigation:
+To resolve the issue, the following steps were taken:
+
+1. The server logs were checked to identify any relevant error messages.
+2. The Apache server was isolated, and a 'curl' command was executed in a separate terminal to access the website.
+3. The 'wp-settings.php' file was opened and examined, leading to the discovery of the incorrect PHP extensions.
+4. The extensions were updated to the correct 'php' format.
+5. After implementing the fix, the website was tested to ensure that the server error 500 no longer occurred.
+
+Lessons Learned:
+
+1. Regularly monitor server logs: Maintaining an active log monitoring process can help in quickly identifying and resolving issues.
+2. Isolate problematic components: By isolating the Apache server and running a 'curl' command, we were able to pinpoint the problematic file more efficiently.
+3. Thoroughly inspect code files: Taking the time to carefully examine the code files can lead to the identification of specific issues and expedite the resolution process.
+4. Keep extensions up to date: Regularly updating and maintaining correct file extensions helps prevent compatibility issues and potential errors.
+
+Recommendations:
+
+1. Implement automated monitoring: Consider implementing an automated monitoring system that can proactively detect and alert you to server errors and other issues.
+2. Regular code reviews: Conduct periodic code reviews to identify and rectify any potential misconfigurations or coding errors.
+3. Documentation and knowledge sharing: Document the steps taken to resolve the issue and share this information with the relevant team members to enhance collective knowledge.
+
+By following these recommendations and incorporating the lessons learned from this incident, we aim to improve our server stability and minimize the occurrence of similar issues in the future.
+
+If you have any further questions or concerns, please feel free to reach out.
