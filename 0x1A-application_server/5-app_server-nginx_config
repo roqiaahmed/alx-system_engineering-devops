@@ -1,0 +1,60 @@
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        # Use IP of server as domain name
+        server_name 54.157.165.199;
+
+        # Customize HTTP response header
+        add_header X-Served-By "357794-web-01";
+
+        # Serve /airbnb-onepage/ route from AirBnB_clone_v2
+        location = /airbnb-onepage/ {
+                 proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+        }
+
+        location  /airbnb-dynamic/number_odd_or_even/ {
+                 proxy_pass http://127.0.0.1:5001/number_odd_or_even/;
+        }
+
+        location  /api {
+                 proxy_pass http://127.0.0.1:5002/api;
+        }
+
+        location  / {
+                 proxy_pass http://127.0.0.1:5003/2-hbnb;
+        }
+
+        location  /static/ {
+                 alias web_dynamic/static/ ;
+        }
+
+        location /hbnb_static/ {
+                alias /data/web_static/current/;
+        }
+
+        #
+        # include snippets/snakeoil.conf;
+
+        root /var/www/html;
+
+        # Add index.php to the list if you are using PHP
+        index index.html index.htm index.nginx-debian.html;
+
+        #edit by my.....
+        location /redirect_me {
+                return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+        }
+
+
+        location /hbnb_static {
+                alias /data/web_static/current;
+                autoindex off;
+        }
+
+        error_page 404 /404.html;
+        location = /404.html {
+                root /var/www/html;
+                internal;
+        }
+}
