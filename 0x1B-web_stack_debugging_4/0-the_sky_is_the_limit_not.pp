@@ -5,7 +5,7 @@ exec { 'fix-ulimit':
     path    => '/usr/local/bin/:/bin/',
 }
 service { 'nginx':
-    ensure    => 'running',
-    enable    => true,
-    require   => Exec['fix-ulimit'],
+    ensure   => 'running',
+    enable   => true,
+    require  => Exec['fix-ulimit'],
 }
