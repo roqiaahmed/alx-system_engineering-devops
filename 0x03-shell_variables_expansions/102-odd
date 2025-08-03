@@ -1,2 +1,2 @@
-#!bin/bash
+#!/bin/bash
 echo $((awk ' {print "ls " $0 }' | sh |tr " " '\n'))
